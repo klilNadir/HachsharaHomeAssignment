@@ -7,7 +7,13 @@ namespace HachsharaHomeAssignment.Implementations
     public class UserRepository : IUserRepository
     {
         private AppDbContext appDbContext;
-        private readonly ILogger<UsersService> _logger;
+        private readonly ILogger<UserRepository> _logger;
+
+        public UserRepository(AppDbContext appDbContext, ILogger<UserRepository> logger)
+        {
+            this.appDbContext = appDbContext;
+            _logger = logger;
+        }
 
         public int CreateUser(User user)
         {
